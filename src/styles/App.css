@@ -1,0 +1,273 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    height: 100vh;
+    background: #222222;
+    font-family: 'Lato', sans-serif;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.container {
+    display: block;
+    position: relative;
+    height: auto;
+    width: 300px;
+    padding: 40px;
+}
+
+h2 {
+    color: #AAAAAA;
+}
+
+.container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+ul li {
+    color: #AAAAAA;
+    display: block;
+    position: relative;
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #333;
+}
+
+ul li input[type=radio] {
+    position: absolute;
+    visibility: hidden;
+}
+
+ul li label {
+    display: block;
+    position: relative;
+    font-weight: 300;
+    font-size: 1.35em;
+    padding: 25px 25px 25px 80px;
+    z-index: 9;
+    cursor: pointer;
+    -webkit-transition: all 0.25s linear;
+}
+
+ul li:hover label {
+    color: #FFFFFF;
+}
+
+ul li .check {
+    display: block;
+    position: absolute;
+    border: 5px solid #AAAAAA;
+    border-radius: 100%;
+    height: 15px;
+    width: 15px;
+    top: 25px;
+    left: 25px;
+    z-index: 5;
+    transition: border .25s linear;
+    -webkit-transition: border .25s linear;
+}
+
+ul li:hover .check {
+    border: 5px solid #FFFFFF;
+}
+
+ul li .check::before {
+    display: block;
+    position: absolute;
+    content: '';
+    border-radius: 100%;
+    height: 5px;
+    width: 5px;
+    top: 5px;
+    left: 5px;
+    margin: auto;
+}
+
+input[type=radio]:checked~.check {
+    border: 5px solid #0DFF92;
+}
+
+input[type=radio]:checked~.check::before {
+    background: #0DFF92;
+}
+
+input[type=radio]:checked~label {
+    color: #0DFF92;
+}
+
+.timer-container {
+    display: flex;
+    flex-grow: 2;
+    align-items: center;
+    flex-wrap: wrap
+}
+
+.timer-container h1 {
+    font-size: 2em;
+    font-weight: 600;
+    color: #dad8d8;
+    width: 100%;
+    text-align: center;
+}
+
+.timer-group {
+    height: 400px;
+    margin: 0 auto;
+    position: relative;
+    width: 400px;
+}
+
+.timer {
+    border-radius: 50%;
+    height: 100px;
+    overflow: hidden;
+    position: absolute;
+    width: 100px;
+}
+
+.timer:after {
+    background: #111;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 80px;
+    left: 10px;
+    position: absolute;
+    width: 80px;
+    top: 10px;
+}
+
+.timer .hand {
+    float: left;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 50%;
+}
+
+.timer .hand span {
+    border: 50px solid rgba(0, 255, 255, .7);
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-radius: 50%;
+    display: block;
+    height: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: rotate(225deg);
+    width: 0;
+}
+
+.timer .hand:first-child {
+    transform: rotate(180deg);
+}
+
+.timer .hand span {
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.timer .hand:first-child span {
+    animation-name: spin1;
+}
+
+.timer .hand:last-child span {
+    animation-name: spin2;
+}
+
+.timer {
+    background: rgba(0, 0, 0, .2);
+    height: 350px;
+    left: 25px;
+    width: 350px;
+    top: 25px;
+}
+
+
+
+.timer .hand .span {
+    animation-duration: 4s;
+    border-top-color: rgba(15, 238, 102, .7);
+    border-right-color: rgba(15, 238, 102, .7);
+    border-width: 175px;
+}
+
+.timer:after {
+    height: 310px;
+    left: 20px;
+    width: 310px;
+    top: 20px;
+}
+
+.face {
+    background: rgba(161, 161, 161, 0.1);
+    border-radius: 50%;
+    height: 296px;
+    left: 52px;
+    position: relative;
+    width: 296px;
+    text-align: center;
+    display: flex;
+    top: 52px;
+}
+
+.face-content {
+    font-weight: 400;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.media-buttons {
+    background-color: transparent;
+    border: none;
+    color: #FFFFFF;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+@keyframes spin1 {
+    0% {
+        transform: rotate(225deg);
+    }
+
+    50% {
+        transform: rotate(225deg);
+    }
+
+    100% {
+        transform: rotate(405deg);
+    }
+}
+
+@keyframes spin2 {
+    0% {
+        transform: rotate(225deg);
+    }
+
+    50% {
+        transform: rotate(405deg);
+    }
+
+    100% {
+        transform: rotate(405deg);
+    }
+}
